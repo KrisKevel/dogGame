@@ -6,13 +6,17 @@ using UnityEngine.EventSystems;
 public class DogController : MonoBehaviour
 {
     public float MovementSpeed;
+    public float dayLenght = 120;
+
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D dogsRigidBody;
     private Animator animator;
+
     private bool movementSideways; 
     private bool movementAway;
     private bool movementTowards;
 
+    private float _dayTimeLeft;
     private Vector3 _movementDirection = Vector3.zero;
 
     private void Awake()
@@ -24,6 +28,7 @@ public class DogController : MonoBehaviour
 
     void Start()
     {
+        _dayTimeLeft = dayLenght;
         movementSideways = false;
         movementAway = false;
         movementTowards = false;
@@ -83,16 +88,20 @@ public class DogController : MonoBehaviour
 
         _movementDirection = new Vector3(moveX, moveY).normalized;
 
-
-        if (Input.GetKey("e"))
+        _dayTimeLeft -= Time.deltaTime;
+        if(_dayTimeLeft <= 0)
         {
-            //Interaction
+            //Switch the day
         }
-
     }
 
     private void FixedUpdate()
     {
         dogsRigidBody.MovePosition(transform.position + _movementDirection * MovementSpeed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter()
+    {
+        //Object interaction
     }
 }
