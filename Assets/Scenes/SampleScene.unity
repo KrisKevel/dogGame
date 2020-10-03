@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 816517125}
   offset: {x: 0, y: 0, z: -0.39}
-  smoothTime: 0.3
+  smoothTime: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -469,7 +469,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &816517128
 BoxCollider2D:
   m_ObjectHideFlags: 0
