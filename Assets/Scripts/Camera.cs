@@ -6,7 +6,7 @@ public class Camera : MonoBehaviour
 {
     public Transform player;
     public Vector3 offset;
-    public float smoothTime = 0.125f;
+    public float smoothTime = 0f;
 
     private Vector3 velocity;
 

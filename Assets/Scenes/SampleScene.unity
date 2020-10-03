@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 816517125}
   offset: {x: 0, y: 0, z: -0.39}
-  smoothTime: 1
+  smoothTime: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
