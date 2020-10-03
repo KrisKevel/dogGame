@@ -7,6 +7,12 @@ using UnityEngine;
 public class VillianBehaviour : MonoBehaviour
 {
 
+    public int DefaultTimePerAction = 5;
+    public int WorkTime = 10;
+    public Vector3 WorkCoordinates = new Vector3(0, 3);
+    public GameObject[] ActionSpots;
+    public int[] ActionTimes;
+
     private Vector3 _destination;
     public Vector3 destination
     {
@@ -17,16 +23,14 @@ public class VillianBehaviour : MonoBehaviour
         set
         {
             _destination = value;
-            MoveToDestination();
+            aipath.destination = _destination;
         }
     }
 
     private AIPath aipath;
 
-    private void MoveToDestination()
-    {
-        aipath.destination = _destination;   
-    }
+    private int currentActionIndex = 0;
+    private float NextActionTime = 0;
 
     private void Awake()
     {
@@ -35,12 +39,34 @@ public class VillianBehaviour : MonoBehaviour
 
     void Start()
     {
-        destination = Vector3.zero;
+        NextActionTime = Time.time;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > NextActionTime)
+        {
+            if (currentActionIndex == ActionSpots.Length)
+            {
+                GoToWork();
+                NextActionTime += WorkTime;
+                currentActionIndex = 0;
+            }
+            else
+            {
+                destination = ActionSpots[currentActionIndex].transform.position;
+                NextActionTime += currentActionIndex < ActionTimes.Length ? ActionTimes[currentActionIndex] : DefaultTimePerAction;
+                currentActionIndex++;
+            }
+        }
         
+    }
+
+    void GoToWork()
+    {
+        destination = WorkCoordinates;
     }
 }
