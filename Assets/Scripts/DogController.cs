@@ -82,6 +82,13 @@ public class DogController : MonoBehaviour
 
 
         _movementDirection = new Vector3(moveX, moveY).normalized;
+
+
+        if (Input.GetKey("e"))
+        {
+            //Interaction
+        }
+
     }
 
     private void FixedUpdate()
