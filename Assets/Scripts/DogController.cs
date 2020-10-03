@@ -33,9 +33,9 @@ public class DogController : MonoBehaviour
         if (Input.GetKey("d"))
         {
             //Change sprite orientation accordingly to movement direction
-            if (!spriteRenderer.flipY)
+            if (!spriteRenderer.flipX)
             {
-                spriteRenderer.flipY = true;
+                spriteRenderer.flipX = true;
             }
 
             pos.x += MovementSpeed * Time.deltaTime;
@@ -43,9 +43,9 @@ public class DogController : MonoBehaviour
         if (Input.GetKey("a"))
         {
             //Change sprite orientation accordingly to movement direction
-            if (spriteRenderer.flipY)
+            if (spriteRenderer.flipX)
             {
-                spriteRenderer.flipY = false;
+                spriteRenderer.flipX = false;
             }
 
             pos.x -= MovementSpeed * Time.deltaTime;
