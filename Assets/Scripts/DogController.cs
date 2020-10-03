@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DogController : MonoBehaviour
 {
     public float MovementSpeed;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D dogsRigidBody;
+
+    private Vector3 _movementDirection = Vector3.zero;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        dogsRigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Start()
@@ -18,17 +23,16 @@ public class DogController : MonoBehaviour
 
     void Update()
     {
-
-        //Movement
-        Vector2 pos = transform.position;
+        float moveY = 0f;
+        float moveX = 0f;
 
         if (Input.GetKey("w"))
         {
-            pos.y += MovementSpeed * Time.deltaTime;
+            moveY = +1f;
         }
         if (Input.GetKey("s"))
         {
-            pos.y -= MovementSpeed * Time.deltaTime;
+            moveY = -1f;
         }
         if (Input.GetKey("d"))
         {
@@ -38,7 +42,7 @@ public class DogController : MonoBehaviour
                 spriteRenderer.flipX = true;
             }
 
-            pos.x += MovementSpeed * Time.deltaTime;
+            moveX = +1f;
         }
         if (Input.GetKey("a"))
         {
@@ -48,11 +52,14 @@ public class DogController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
 
-            pos.x -= MovementSpeed * Time.deltaTime;
+            moveX = -1f;
         }
 
-        transform.position = pos;
+        _movementDirection = new Vector3(moveX, moveY).normalized;
+    }
 
-        
+    private void FixedUpdate()
+    {
+        dogsRigidBody.MovePosition(transform.position + _movementDirection * MovementSpeed * Time.deltaTime);
     }
 }
