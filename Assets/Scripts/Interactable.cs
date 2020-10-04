@@ -17,13 +17,15 @@ public class Interactable : MonoBehaviour
         if ((DogController.Instance.transform.position - transform.position).magnitude < Radius)
         {
             renderer.color = Color.red;
-            if(DogController.Instance.asleep && Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                DogBehaviour.Instance.UnsetAction();
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DogBehaviour.Instance.SetAction(action, transform.position);
+                if (DogBehaviour.Instance.CurrentAction == action)
+                {
+                    DogBehaviour.Instance.UnsetAction();
+                } else
+                {
+                    DogBehaviour.Instance.SetAction(action, transform.position);
+                }
             }
         } else
         {

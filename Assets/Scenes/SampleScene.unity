@@ -774,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.33
-  action: 0
+  action: 1
 --- !u!1 &427020659
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,6 +3148,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2473081821204702703, guid: 86250c93d9661a143841c1ed1702a9cb, type: 3}
+      propertyPath: SleepingPlace
+      value: 
+      objectReference: {fileID: 400626304}
+    - target: {fileID: 2473081821204702703, guid: 86250c93d9661a143841c1ed1702a9cb, type: 3}
+      propertyPath: EatingBowl
+      value: 
+      objectReference: {fileID: 1504709956}
     m_RemovedComponents:
     - {fileID: 2473081821204702698, guid: 86250c93d9661a143841c1ed1702a9cb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86250c93d9661a143841c1ed1702a9cb, type: 3}
