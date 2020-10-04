@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5391260150725568469}
   - component: {fileID: 5391260150725568474}
+  - component: {fileID: 4225329544481107202}
   m_Layer: 0
   m_Name: ipad-spygoal_lock
   m_TagString: Untagged
@@ -197,8 +198,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1580240507
-  m_SortingLayer: 4
+  m_SortingLayerID: 1965469283
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b2f0cebd187bbb543996e4490de0609e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -211,6 +212,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4225329544481107202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391260150725568468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ef7a45620111742b673232eafece44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwipeRange: 2
 --- !u!1 &5727962631803737608
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +293,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1580240507
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7d5b89e876d9c764fadbf6c59dcf4851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -303,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8673862203700332051}
   - component: {fileID: 8401120941796123457}
+  - component: {fileID: 4494009868316995369}
   m_Layer: 0
   m_Name: ipad-spygoal_home
   m_TagString: Untagged
@@ -361,8 +376,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2000324561
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 55216186f3c8a76428636154f42f4cba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -375,3 +390,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4494009868316995369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282298508921370982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229e853eaa6282b4d91fd9d8ead15e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwipeRange: 0

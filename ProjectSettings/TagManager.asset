@@ -50,6 +50,12 @@ TagManager:
   - name: Player
     uniqueID: 2092004797
     locked: 0
-  - name: QuestWindow
+  - name: QuestWindow1
     uniqueID: 1580240507
+    locked: 0
+  - name: QuestWindow2
+    uniqueID: 2294642735
+    locked: 0
+  - name: QuestWindow3
+    uniqueID: 1965469283
     locked: 0
