@@ -35,6 +35,7 @@ public class UIController : MonoBehaviour
     {
         if (!quests.ContainsKey(name))
         {
+            GoalPrefab.text = name;
             TextMeshProUGUI quest = GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
             quests.Add(name, quest);
         }

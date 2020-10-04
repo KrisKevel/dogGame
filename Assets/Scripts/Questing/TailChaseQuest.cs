@@ -17,14 +17,6 @@ public class TailChaseQuest : Quest
         UIController.Instance.AddObjective(questName);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("m"))
-        {
-            goal.Increment(1);
-        }
-    }
-
     public override void Complete()
     {
         base.Complete();

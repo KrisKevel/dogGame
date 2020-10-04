@@ -6,7 +6,7 @@ public class SleepQuest : Quest
 {
     void Awake()
     {
-        questName = "Take naps!";
+        questName = "Take a nap!";
         goal = gameObject.AddComponent<Goal>();
         goal.countNeeded = 3;
         goal.quest = this;

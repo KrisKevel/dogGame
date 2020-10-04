@@ -17,6 +17,10 @@ public class DogLoop : MonoBehaviour
         DogAction.Sleeping
     };
 
+    public EatQuest eatQuest;
+    public SleepQuest sleepQuest;
+    public Quest currentQuest;
+
     private int _expectedActionIndex;
 
     private float _nextActionTime;
@@ -25,6 +29,16 @@ public class DogLoop : MonoBehaviour
     private void updateTime()
     {
         Debug.Log("New action started! " + ActionsList[_expectedActionIndex]);
+        switch (_expectedActionIndex)
+        {
+            case 0:
+                currentQuest =  gameObject.AddComponent<EatQuest>();
+                break;
+            case 1:
+                currentQuest = gameObject.AddComponent<SleepQuest>();
+                break;
+        }
+    
         _nextActionTime = Time.time + ActionTimeout;
         _nextCheckTime = Time.time + ActionCheckpoint;
         _isChecked = false;
@@ -47,11 +61,13 @@ public class DogLoop : MonoBehaviour
             _isChecked = true;
             if (Instance.CurrentAction != ActionsList[_expectedActionIndex])
             {
+                //Add to suspiciousness
                 Debug.Log("YOU ARE SUSPICIOUS!!!");
             } else
             {
                 Debug.Log("Check passed, no sus!");
             }
+            currentQuest.Complete();
         }
     }
 }
