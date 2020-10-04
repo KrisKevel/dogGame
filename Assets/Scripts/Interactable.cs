@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
             {
                 if (DogBehaviour.Instance.CurrentAction == action)
                 {
-                    DogBehaviour.Instance.UnsetAction(); 
+                    DogBehaviour.Instance.UnsetAction();
                     if (actionScript != null)
                     {
                         actionScript.CleanAction();
