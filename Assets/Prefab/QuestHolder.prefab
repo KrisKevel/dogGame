@@ -402,4 +402,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229e853eaa6282b4d91fd9d8ead15e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwipeRange: 0
+  SwipeRange: 2
