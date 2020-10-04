@@ -18,6 +18,7 @@ public class DogController : MonoBehaviour
     private bool movementAway;
     private bool movementTowards;
 
+    private int _dayCount;
     private float _dayTimeLeft;
     private Vector3 _movementDirection = Vector3.zero;
 
@@ -31,6 +32,7 @@ public class DogController : MonoBehaviour
 
     void Start()
     {
+        _dayCount = 0;
         _dayTimeLeft = dayLenght;
         movementSideways = false;
         movementAway = false;
@@ -100,6 +102,7 @@ public class DogController : MonoBehaviour
         if(_dayTimeLeft <= 0)
         {
             //Switch the day
+            _dayCount++;
         }
     }
 

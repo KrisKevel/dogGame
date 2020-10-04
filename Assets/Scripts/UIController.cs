@@ -7,13 +7,17 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     public static UIController Instance;
+    
 
     public TextMeshProUGUI GoalPrefab;
     public GameObject ObjectivePanel;
     //public Image SuspicionMeter;
 
+    public Dictionary<string, TextMeshProUGUI> quests;
+
     private void Awake()
     {
+        quests = new Dictionary<string, TextMeshProUGUI>();
         Instance = this;
     }
 
@@ -24,16 +28,26 @@ public class UIController : MonoBehaviour
 
     public void SetSuspicious(float sus)
     {
-        //Set a value to the susect meter
+        //Set a value to the suspect meter
     }
 
-    public void SetObjectives(Goal[] goals)
+    public void AddObjective(string name)
     {
-        foreach (Goal goal in goals) {
-            GoalPrefab.text = goal.name;
-            GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
+        if (!quests.ContainsKey(name))
+        {
+            TextMeshProUGUI quest = GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
+            quests.Add(name, quest);
         }
+    }
 
+    public void objectiveCompleted(string name)
+    {
+        if (quests.ContainsKey(name))
+        {
+            TextMeshProUGUI quest;
+            quests.TryGetValue(name, out quest);
+            GameObject.Destroy(quest.gameObject);
+        }
     }
 
     // Update is called once per frame
