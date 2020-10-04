@@ -6,6 +6,8 @@ using static DogBehaviour;
 public class DogLoop : MonoBehaviour
 {
 
+    public static DogLoop DogLoopInstance;
+
     public GameObject EatingBowl;
     public GameObject SleepingPlace;
     public int ActionTimeout = 30;
@@ -42,27 +44,38 @@ public class DogLoop : MonoBehaviour
 
     private void Start()
     {
+        DogLoopInstance = this;
         _expectedActionIndex = 0;
+        //updateTime();
+    }
+
+    public void StartTheLoop()
+    {
         updateTime();
     }
 
     void Update()
     {
-        if (Time.time > _nextActionTime)
+        if (UIController.Instance.IntroOver)
         {
-            _expectedActionIndex = (_expectedActionIndex + 1) % ActionsList.Length;
-            updateTime();
-        } else if (Time.time > _nextCheckTime && !_isChecked)
-        {
-            _isChecked = true;
-            if (Instance.CurrentAction != ActionsList[_expectedActionIndex])
+            if (Time.time > _nextActionTime)
             {
-                //Add to suspiciousness
-                Debug.Log("YOU ARE SUSPICIOUS!!!");
-                DogController.Instance.Suspicion += 0.1f;
-            } else
+                _expectedActionIndex = (_expectedActionIndex + 1) % ActionsList.Length;
+                updateTime();
+            }
+            else if (Time.time > _nextCheckTime && !_isChecked)
             {
-                Debug.Log("Check passed, no sus!");
+                _isChecked = true;
+                if (Instance.CurrentAction != ActionsList[_expectedActionIndex])
+                {
+                    //Add to suspiciousness
+                    Debug.Log("YOU ARE SUSPICIOUS!!!");
+                    DogController.Instance.Suspicion += 0.1f;
+                }
+                else
+                {
+                    Debug.Log("Check passed, no sus!");
+                }
             }
         }
     }
