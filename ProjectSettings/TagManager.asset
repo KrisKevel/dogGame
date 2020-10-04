@@ -62,3 +62,6 @@ TagManager:
   - name: QuestWindow3
     uniqueID: 1965469283
     locked: 0
+  - name: QuestWindow4
+    uniqueID: 4240302713
+    locked: 0
