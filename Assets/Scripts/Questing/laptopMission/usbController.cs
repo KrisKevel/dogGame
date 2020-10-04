@@ -9,6 +9,7 @@ public class usbController : MonoBehaviour
     public GameObject triggerStuckObject;
     public Vector2 stuckToPosition;
     public float stuckToRotation;
+    public GameObject screen_one;
 
     private bool waitAFrame;
     private Rigidbody2D mycomponent;
@@ -26,16 +27,9 @@ public class usbController : MonoBehaviour
         if (collidedTrueIs)
         {
 
-            if (!waitAFrame)
-            {
-                waitAFrame = true;
-            }
-
-            if (waitAFrame)
-            {
-                waitAFrame = false;
-                collidedTrueIs.bodyType = RigidbodyType2D.Static;
-            }
+            mycomponent.position = stuckToPosition;
+            mycomponent.rotation = stuckToRotation;
+            mycomponent.Sleep();
         }
     }
 
@@ -54,6 +48,12 @@ public class usbController : MonoBehaviour
             collidedTrueIs = mycomponent;
             waitAFrame = true;
             //mycomponent.Sleep();
+
+
+            // Disable password screen;
+            screen_one.SetActive(false);
+
+
         }
     }
 }
