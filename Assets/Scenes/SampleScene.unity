@@ -2363,11 +2363,11 @@ PrefabInstance:
     - target: {fileID: 348115140159951808, guid: e35b6c956e2dd4047b93399f5b981a4b, type: 3}
       propertyPath: ActionSpots.Array.data[2]
       value: 
-      objectReference: {fileID: 271576176}
+      objectReference: {fileID: 1894075418}
     - target: {fileID: 348115140159951808, guid: e35b6c956e2dd4047b93399f5b981a4b, type: 3}
       propertyPath: ActionSpots.Array.data[3]
       value: 
-      objectReference: {fileID: 1894075418}
+      objectReference: {fileID: 271576176}
     - target: {fileID: 348115140159951808, guid: e35b6c956e2dd4047b93399f5b981a4b, type: 3}
       propertyPath: ActionTimes.Array.data[2]
       value: 10
