@@ -28,6 +28,8 @@ public class DogBehaviour : MonoBehaviour
     {
         
     }
+
+
     public void SetAction(DogAction action)
     {
         CurrentAction = action;
@@ -47,7 +49,7 @@ public class DogBehaviour : MonoBehaviour
 
     public void SetAction(DogAction action, Vector3 targetPosition)
     {
-        transform.position = targetPosition;
+        //transform.position = targetPosition; //this is causing weird teleportation
         SetAction(action);
     }
 
@@ -68,6 +70,7 @@ public class DogBehaviour : MonoBehaviour
 
     private void performSleeping()
     {
-        GetComponent<SpriteRenderer>().color = Color.green;
+        DogController.Instance.Sleep();
+        //GetComponent<SpriteRenderer>().color = Color.green;
     }
 }

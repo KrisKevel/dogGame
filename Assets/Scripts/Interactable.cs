@@ -17,7 +17,11 @@ public class Interactable : MonoBehaviour
         if ((DogController.Instance.transform.position - transform.position).magnitude < Radius)
         {
             renderer.color = Color.red;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if(DogController.Instance.asleep && Input.GetKeyDown(KeyCode.Space))
+            {
+                DogBehaviour.Instance.UnsetAction();
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
             {
                 DogBehaviour.Instance.SetAction(action, transform.position);
             }
