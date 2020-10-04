@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class DogController : MonoBehaviour
 {
+    public static DogController Instance;
+
     public float MovementSpeed;
     public float dayLenght = 120;
 
@@ -21,6 +23,7 @@ public class DogController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         spriteRenderer = GetComponent<SpriteRenderer>();
         dogsRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -87,6 +90,11 @@ public class DogController : MonoBehaviour
 
 
         _movementDirection = new Vector3(moveX, moveY).normalized;
+
+        if (_movementDirection.magnitude != 0)
+        {
+            DogBehaviour.Instance.UnsetAction();
+        }
 
         _dayTimeLeft -= Time.deltaTime;
         if(_dayTimeLeft <= 0)
