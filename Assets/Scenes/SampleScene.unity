@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 966360816}
   - component: {fileID: 966360815}
   - component: {fileID: 966360817}
+  - component: {fileID: 966360818}
   m_Layer: 0
   m_Name: map_phone
   m_TagString: Untagged
@@ -1696,7 +1697,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.27
-  action: 0
+  action: 3
+--- !u!114 &966360818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966360814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ad5ea253df15c4c8652c8ef35b9666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TabletPrefab: {fileID: 5391260150354003085, guid: 3a42323ed383f77499ffe0472b17a93a, type: 3}
 --- !u!1 &981611203
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,6 +3294,7 @@ MonoBehaviour:
   SuspicionMeter: {fileID: 1980127423}
   Narrative: {fileID: 3879818947265889548, guid: 8617269baf18a8c458e677d2581d331f, type: 3}
   TimeToRead: 7
+  IntroOver: 0
 --- !u!1 &1894075418
 GameObject:
   m_ObjectHideFlags: 0
