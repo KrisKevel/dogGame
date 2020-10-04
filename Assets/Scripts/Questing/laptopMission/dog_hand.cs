@@ -9,7 +9,7 @@ public class dog_hand : MonoBehaviour
     public float MovementSpeed;
     public GameObject ignoreWhenSpace;
     public GameObject otherHand;
-    public GameObject floorModel;
+    public GameObject[] boundModels;
     //public GameObject[] ignoreObjects;
 
 
@@ -30,7 +30,11 @@ public class dog_hand : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreCollision(otherHand.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
-        Physics2D.IgnoreCollision(floorModel.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
+        for (int i = 0; i < boundModels.Length; i++)
+        {
+            Physics2D.IgnoreCollision(boundModels[i].GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
+        }
+        
     }
 
     // Update is called once per frame
@@ -77,13 +81,14 @@ public class dog_hand : MonoBehaviour
             moveX = -1f;
         }
 
+        /*
         if (!(Input.GetKey("space")))
         {
             Physics2D.IgnoreCollision(ignoreWhenSpace.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>());
         } else
         {
             Physics2D.IgnoreCollision(ignoreWhenSpace.GetComponent<PolygonCollider2D>(), GetComponent<PolygonCollider2D>(), false);
-        }
+        }*/
 
         _movementDirection = new Vector3(moveX, moveY).normalized;
 
