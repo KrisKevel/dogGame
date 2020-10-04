@@ -27,6 +27,20 @@ public class DogController : MonoBehaviour
         }
     }
 
+    public bool _chase;
+    public bool Chase
+    {
+        set
+        {
+            _chase = value;
+            animator.SetBool("Chase", value);
+        }
+        get
+        {
+            return _chase;
+        }
+    }
+
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D dogsRigidBody;
     private Animator animator;
@@ -119,10 +133,11 @@ public class DogController : MonoBehaviour
 
             _movementDirection = new Vector3(moveX, moveY).normalized;
 
-            //if (_movementDirection.magnitude != 0)
-            //{
-            //    DogBehaviour.Instance.UnsetAction();
-            //}
+            if (_movementDirection.magnitude * _movementSpeed > 0)
+            {
+                Chase = false;
+                DogBehaviour.Instance.UnsetAction();
+            }
         }
 
         _dayTimeLeft -= Time.deltaTime;
@@ -143,12 +158,6 @@ public class DogController : MonoBehaviour
         asleep = true;
         animator.SetBool("Sleep", asleep);
     }
-
-    public void Chase()
-    {
-        animator.SetBool("Chase", true);
-    }
-
 
     public void StopMovement()
     {

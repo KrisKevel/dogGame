@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour
     {
         if ((DogController.Instance.transform.position - transform.position).magnitude < Radius)
         {
-            renderer.color = Color.red;
+            renderer.color = Color.green;
             ActionScript actionScript = GetComponent<ActionScript>();
             if (Input.GetKeyDown(KeyCode.Space))
             {

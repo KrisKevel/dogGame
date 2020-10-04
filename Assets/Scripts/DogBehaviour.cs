@@ -69,7 +69,8 @@ public class DogBehaviour : MonoBehaviour
 
     private void performEating()
     {
-        GetComponent<SpriteRenderer>().color = Color.green;
+        DogController.Instance.Chase = true;
+        //GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     private void performSleeping()
