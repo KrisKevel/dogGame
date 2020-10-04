@@ -10,7 +10,7 @@ public class dog_hand : MonoBehaviour
     public GameObject ignoreWhenSpace;
     public GameObject otherHand;
     public GameObject floorModel;
-    public GameObject[] ignoreObjects;
+    //public GameObject[] ignoreObjects;
 
 
     public KeyCode up;
