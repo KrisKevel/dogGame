@@ -17,10 +17,6 @@ public class DogLoop : MonoBehaviour
         DogAction.Sleeping
     };
 
-    public EatQuest eatQuest;
-    public SleepQuest sleepQuest;
-    public Quest currentQuest;
-
     private int _expectedActionIndex;
 
     private float _nextActionTime;
@@ -28,14 +24,15 @@ public class DogLoop : MonoBehaviour
     private bool _isChecked;
     private void updateTime()
     {
+        UIController.Instance.AddObjective("");
         Debug.Log("New action started! " + ActionsList[_expectedActionIndex]);
         switch (_expectedActionIndex)
         {
-            case 0:
-                currentQuest =  gameObject.AddComponent<EatQuest>();
+            case 0: //This is driving me insane, why are they both showing up at the same time?
+                UIController.Instance.UpdateObjective("Get a snack!");
                 break;
             case 1:
-                currentQuest = gameObject.AddComponent<SleepQuest>();
+                UIController.Instance.UpdateObjective("Take a nap!");
                 break;
         }
     
@@ -67,7 +64,6 @@ public class DogLoop : MonoBehaviour
             {
                 Debug.Log("Check passed, no sus!");
             }
-            currentQuest.Complete();
         }
     }
 }

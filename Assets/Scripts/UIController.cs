@@ -31,6 +31,13 @@ public class UIController : MonoBehaviour
         //Set a value to the suspect meter
     }
 
+    public void UpdateObjective(string name)
+    {
+        Destroy(ObjectivePanel.transform.GetChild(0).gameObject);
+        GoalPrefab.text = name;
+        GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
+    }
+
     public void AddObjective(string name)
     {
         if (!quests.ContainsKey(name))
