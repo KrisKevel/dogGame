@@ -5,20 +5,24 @@ using UnityEngine;
 public class SwipeDown : MonoBehaviour
 {
     public float SwipeRange;
+    public GameObject blocker;
 
     private Vector3 startPos;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (blocker == null || !blocker.activeSelf)
         {
-            startPos = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if ( - (Input.mousePosition - startPos).y > SwipeRange)
+            if (Input.GetMouseButtonDown(0))
             {
-                Swipe();
+                startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (-(Camera.main.ScreenToWorldPoint(Input.mousePosition) - startPos).y > SwipeRange)
+                {
+                    Swipe();
+                }
             }
         }
     }

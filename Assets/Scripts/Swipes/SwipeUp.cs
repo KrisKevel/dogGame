@@ -18,11 +18,11 @@ public class SwipeUp : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            startPos = Input.mousePosition;
+            startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if ((Input.mousePosition - startPos).y > SwipeRange)
+            if ((Camera.main.ScreenToWorldPoint(Input.mousePosition) - startPos).y > SwipeRange)
             {
                 Swipe();
             }
