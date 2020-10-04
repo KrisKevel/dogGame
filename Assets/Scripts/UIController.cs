@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
         narrative.Add(3, "But you know, some dogs are really, really different. You don't believe me?");
         narrative.Add(4, "Well, let me introduce you to Rex.");
         narrative.Add(5, "Now don't get me wrong, he still absolutely has to do 'the dog things'");
-        narrative.Add(5, "but there is something bigger, something more important, a mission!");
+        narrative.Add(6, "but there is something bigger, something more important, a mission!");
     }
 
     // Start is called before the first frame update
