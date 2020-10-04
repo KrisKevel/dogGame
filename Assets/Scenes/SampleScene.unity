@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 0.27
-  action: 0
+  action: 3
 --- !u!1 &973333780
 GameObject:
   m_ObjectHideFlags: 0
