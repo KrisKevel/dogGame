@@ -6,5 +6,5 @@ public interface ActionScript
 {
 
     void PerformAction();
-
+    void CleanAction();
 }

@@ -17,14 +17,23 @@ public class Interactable : MonoBehaviour
         if ((DogController.Instance.transform.position - transform.position).magnitude < Radius)
         {
             renderer.color = Color.red;
+            ActionScript actionScript = GetComponent<ActionScript>();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (DogBehaviour.Instance.CurrentAction == action)
                 {
-                    DogBehaviour.Instance.UnsetAction();
+                    DogBehaviour.Instance.UnsetAction(); 
+                    if (actionScript != null)
+                    {
+                        actionScript.CleanAction();
+                    }
                 } else
                 {
                     DogBehaviour.Instance.SetAction(action, transform.position);
+                    if (actionScript != null)
+                    {
+                        actionScript.PerformAction();
+                    }
                 }
             }
         } else

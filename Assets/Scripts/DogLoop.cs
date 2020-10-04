@@ -25,13 +25,13 @@ public class DogLoop : MonoBehaviour
     private void updateTime()
     {
         Debug.Log("New action started! " + ActionsList[_expectedActionIndex]);
-        switch (_expectedActionIndex)
+        switch (ActionsList[_expectedActionIndex])
         {
-            case 0:
-                UIController.Instance.UpdateObjective("Get a snack!");
+            case DogAction.Eating:
+                //UIController.Instance.UpdateObjective("Get a snack!");
                 break;
-            case 1:
-                UIController.Instance.UpdateObjective("Take a nap!");
+            case DogAction.Sleeping:
+                //UIController.Instance.UpdateObjective("Take a nap!");
                 break;
         }
     

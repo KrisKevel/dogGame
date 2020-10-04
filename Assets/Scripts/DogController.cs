@@ -8,6 +8,7 @@ public class DogController : MonoBehaviour
     public static DogController Instance;
 
     public float MovementSpeed;
+    private float _movementSpeed;
     public float dayLenght = 120;
 
     public bool asleep;
@@ -53,6 +54,7 @@ public class DogController : MonoBehaviour
         movementSideways = false;
         movementAway = false;
         movementTowards = false;
+        _movementSpeed = MovementSpeed;
     }
 
     void Update()
@@ -117,10 +119,10 @@ public class DogController : MonoBehaviour
 
             _movementDirection = new Vector3(moveX, moveY).normalized;
 
-            if (_movementDirection.magnitude != 0)
-            {
-                DogBehaviour.Instance.UnsetAction();
-            }
+            //if (_movementDirection.magnitude != 0)
+            //{
+            //    DogBehaviour.Instance.UnsetAction();
+            //}
         }
 
         _dayTimeLeft -= Time.deltaTime;
@@ -133,7 +135,7 @@ public class DogController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        dogsRigidBody.MovePosition(transform.position + _movementDirection * MovementSpeed * Time.deltaTime);
+        dogsRigidBody.MovePosition(transform.position + _movementDirection * _movementSpeed * Time.deltaTime);
     }
 
     public void Sleep()
@@ -147,5 +149,15 @@ public class DogController : MonoBehaviour
         animator.SetBool("Chase", true);
     }
 
+
+    public void StopMovement()
+    {
+        _movementSpeed = 0;
+    }
+
+    public void ResumeMovement()
+    {
+        _movementSpeed = MovementSpeed;
+    }
 
 }
