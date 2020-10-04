@@ -24,11 +24,10 @@ public class DogLoop : MonoBehaviour
     private bool _isChecked;
     private void updateTime()
     {
-        UIController.Instance.AddObjective("");
         Debug.Log("New action started! " + ActionsList[_expectedActionIndex]);
         switch (_expectedActionIndex)
         {
-            case 0: //This is driving me insane, why are they both showing up at the same time?
+            case 0:
                 UIController.Instance.UpdateObjective("Get a snack!");
                 break;
             case 1:

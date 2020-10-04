@@ -33,9 +33,13 @@ public class UIController : MonoBehaviour
 
     public void UpdateObjective(string name)
     {
-        Destroy(ObjectivePanel.transform.GetChild(0).gameObject);
-        GoalPrefab.text = name;
-        GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
+        if (ObjectivePanel.transform.childCount > 0)
+        {
+            Destroy(ObjectivePanel.transform.GetChild(0).gameObject);
+            GoalPrefab.text = name;
+            GameObject.Instantiate(GoalPrefab, ObjectivePanel.transform);
+        }
+        else AddObjective(name);
     }
 
     public void AddObjective(string name)
