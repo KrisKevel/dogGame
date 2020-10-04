@@ -11,7 +11,8 @@ public class DogBehaviour : MonoBehaviour
     {
         Eating,
         Sleeping,
-        Idling
+        Idling,
+        Tablet
     }
 
 
@@ -40,6 +41,9 @@ public class DogBehaviour : MonoBehaviour
                 break;
             case DogAction.Sleeping:
                 performSleeping();
+                break;
+            case DogAction.Tablet:
+                performTablet();
                 break;
             default:
                 performIdling();
@@ -72,5 +76,10 @@ public class DogBehaviour : MonoBehaviour
     {
         DogController.Instance.Sleep();
         //GetComponent<SpriteRenderer>().color = Color.green;
+    }
+
+    private void performTablet()
+    {
+        GetComponent<SpriteRenderer>().color = Color.yellow;
     }
 }
