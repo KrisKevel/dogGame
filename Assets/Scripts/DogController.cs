@@ -10,6 +10,20 @@ public class DogController : MonoBehaviour
     public float MovementSpeed;
     public float dayLenght = 120;
 
+    private float _sus;
+    public float Suspicion
+    {
+        get
+        {
+            return _sus;
+        }
+        set
+        {
+            _sus = Mathf.Clamp(value, 0, 1);
+            UIController.Instance.SetSuspicious(_sus);
+        }
+    }
+
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D dogsRigidBody;
     private Animator animator;

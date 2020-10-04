@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI GoalPrefab;
     public GameObject ObjectivePanel;
-    //public Image SuspicionMeter;
+    public Image SuspicionMeter;
 
     public Dictionary<string, TextMeshProUGUI> quests;
 
@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
 
     public void SetSuspicious(float sus)
     {
-        //Set a value to the suspect meter
+        SuspicionMeter.fillAmount = sus;
     }
 
     public void UpdateObjective(string name)

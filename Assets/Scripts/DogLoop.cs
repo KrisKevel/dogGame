@@ -59,6 +59,7 @@ public class DogLoop : MonoBehaviour
             {
                 //Add to suspiciousness
                 Debug.Log("YOU ARE SUSPICIOUS!!!");
+                DogController.Instance.Suspicion += 0.1f;
             } else
             {
                 Debug.Log("Check passed, no sus!");
